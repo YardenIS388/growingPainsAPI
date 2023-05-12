@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {getStories, createStory, getStoryById } = require("./api/controllers/Story")
+const {getStories, createStory, getStoryById } = require("./controllers/Story")
 
 router.get("/", (req, res) => {
   res.send("Growing Pains");

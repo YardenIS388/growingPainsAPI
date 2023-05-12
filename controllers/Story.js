@@ -39,7 +39,9 @@ getStoryById = async (req , res ) => {
   
     try {
       const result = await story.save();
-      res.status(200).send(result);
+      const newStory = await Story.findById(result._id).lean().exec();
+   
+      res.status(200).send(newStory);
     } catch (error) {
       console.log("error with create new story");
       console.log({error})
