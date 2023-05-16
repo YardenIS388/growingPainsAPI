@@ -10,7 +10,7 @@ const getStories = async (req, res) => {
   }
 };
 
-getStoryById = async (req , res ) => {
+const getStoryById = async (req , res ) => {
 
     const currentStoryId = parseInt(req.params.storyID )
     console.log(currentStoryId)
