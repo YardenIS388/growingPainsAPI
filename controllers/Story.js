@@ -34,6 +34,7 @@ getStoryById = async (req , res ) => {
       content: req.body.content,
       hebrewContent: req.body.hebrewContent,
       ageGroup: req.body.ageGroup,
+      language:req.body.language,
       art: req.body.art,
     });
   

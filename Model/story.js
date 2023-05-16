@@ -13,6 +13,9 @@ const StorySchema = new mongoose.Schema({
   ageGroup: {
     type: String,
   },
+  language: {
+    type: String,
+  },
   audioFIleName: {
     type: String,
   },
