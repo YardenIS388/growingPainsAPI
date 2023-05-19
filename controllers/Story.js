@@ -40,7 +40,8 @@ const getStoryById = async (req , res ) => {
   
     try {
       const result = await story.save();
-      const newStory = await Story.findById(result._id).lean().exec();
+      //const newStory = await Story.findById(result._id).lean().exec();
+      const newStory = await Story.findById(result._id);
    
       res.status(200).send(newStory);
     } catch (error) {
