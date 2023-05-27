@@ -40,15 +40,11 @@ const getStoryById = async (req , res ) => {
   
     try {
       const result = await story.save();
-      const newStory = await Story.findById(result._id).select('content ageGroup storyId');
-      let storyObject = newStory
+      //const newStory = await Story.findById(result._id).select('content ageGroup storyId');
+      const query = Story.where({ _id: result._id});
+      const newStory = await query.findOne();
 
-      const checkStoryId = newStory.hasOwnProperty('storyId')
-      if(!checkStoryId){
-          storyObject = await Story.findById(result._id).select('content ageGroup storyId');
-      }
-
-      res.status(200).send(storyObject);
+      res.status(200).send(newStory);
     } catch (error) {
       console.log("error with create new story");
       console.log({error})
