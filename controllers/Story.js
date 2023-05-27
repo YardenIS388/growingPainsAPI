@@ -40,9 +40,8 @@ const getStoryById = async (req , res ) => {
   
     try {
       const result = await story.save();
-      //const newStory = await Story.findById(result._id).lean().exec();
-      const newStory = await Story.findById(result._id);
-   
+      const newStory = await Story.findById(result._id).select('content ageGroup storyId');
+      console.log(newStory)
       res.status(200).send(newStory);
     } catch (error) {
       console.log("error with create new story");
