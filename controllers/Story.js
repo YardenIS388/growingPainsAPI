@@ -51,10 +51,29 @@ const getStoryById = async (req , res ) => {
       res.status(500).send(error);
     }
   };
+
+  const getStoryByObjectId = async (req , res)=> {
+   
+    const currentStoryId = req.params.storyID 
+    console.log(currentStoryId)
+    try{
+      
+      const newStory = await Story.findById(currentStoryId);
+      console.log('new Story: ', newStory)
+      res.status(200).send(newStory);
+    }catch {
+      console.log("error with get object id");
+      console.log({error})
+      res.status(500).send(error);
+    }
+    
+
+  }
   
   module.exports = {
     getStories,
     createStory,
-    getStoryById
+    getStoryById,
+    getStoryByObjectId
   };
   
